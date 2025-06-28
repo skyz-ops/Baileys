@@ -1,9 +1,9 @@
-<h1 align='center'><img alt="Baileys logo" src="https://raw.githubusercontent.com/WhiskeySockets/Baileys/refs/heads/master/Media/logo.png" height="75"/></h1>
+<h1 align='center'><img alt="Baileys logo" src="https://raw.githubusercontent.com/skyz-ops/Baileys/refs/heads/master/Media/logo.png" height="75"/></h1>
 
 <div align='center'>
 
-![NPM Downloads](https://img.shields.io/npm/dw/%40whiskeysockets%2Fbaileys?label=npm&color=%23CB3837)
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/whiskeysockets/baileys)
+![NPM Downloads](https://img.shields.io/npm/dw/%40skyz-ops%2Fbaileys?label=npm&color=%23CB3837)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/skyz-ops/baileys)
 ![Discord](https://img.shields.io/discord/725839806084546610?label=discord&color=%235865F2)
 
 </div>
@@ -50,23 +50,23 @@ To run the example script, download or clone the repo and then type the followin
 
 Use the stable version:
 ```
-yarn add @whiskeysockets/baileys
+yarn add @skyz-ops/baileys
 ```
 
 Use the edge version (no guarantee of stability, but latest fixes + features)
 ```
-yarn add github:WhiskeySockets/Baileys
+yarn add github:skyz-ops/Baileys
 ```
 
 Then import your code using:
 ```ts 
-import makeWASocket from '@whiskeysockets/baileys'
+import makeWASocket from '@skyz-ops/baileys'
 ```
 
 # Links
 
 - [Discord](https://discord.gg/WeJM5FP9GG)
-- [Docs](https://guide.whiskeysockets.io/)
+- [Docs](https://guide.skyz-ops.io/)
 
 # Index
 
@@ -181,15 +181,15 @@ WhatsApp provides a multi-device API that allows Baileys to be authenticated as 
 > **[Here](#example-to-start) is a simple example of event handling**
 
 > [!TIP]
-> **You can see all supported socket configs [here](https://baileys.whiskeysockets.io/types/SocketConfig.html) (Recommended)**
+> **You can see all supported socket configs [here](https://baileys.skyz-ops.io/types/SocketConfig.html) (Recommended)**
 
 ### Starting socket with **QR-CODE**
 
 > [!TIP]
-> You can customize browser name if you connect with **QR-CODE**, with `Browser` constant, we have some browsers config, **see [here](https://baileys.whiskeysockets.io/types/BrowsersMap.html)**
+> You can customize browser name if you connect with **QR-CODE**, with `Browser` constant, we have some browsers config, **see [here](https://baileys.skyz-ops.io/types/BrowsersMap.html)**
 
 ```ts
-import makeWASocket from '@whiskeysockets/baileys'
+import makeWASocket from '@skyz-ops/baileys'
 
 const sock = makeWASocket({
     // can provide additional config here
@@ -209,7 +209,7 @@ If the connection is successful, you will see a QR code printed on your terminal
 The phone number can't have `+` or `()` or `-`, only numbers, you must provide country code
 
 ```ts
-import makeWASocket from '@whiskeysockets/baileys'
+import makeWASocket from '@skyz-ops/baileys'
 
 const sock = makeWASocket({
     // can provide additional config here
@@ -282,7 +282,7 @@ You obviously don't want to keep scanning the QR code every time you want to con
 
 So, you can load the credentials to log back in:
 ```ts
-import makeWASocket, { useMultiFileAuthState } from '@whiskeysockets/baileys'
+import makeWASocket, { useMultiFileAuthState } from '@skyz-ops/baileys'
 
 const { state, saveCreds } = await useMultiFileAuthState('auth_info_baileys')
 
@@ -306,7 +306,7 @@ sock.ev.on('creds.update', saveCreds)
 They're all nicely typed up, so you shouldn't have any issues with an Intellisense editor like VS Code.
 
 > [!IMPORTANT]
-> **The events are [these](https://baileys.whiskeysockets.io/types/BaileysEventMap.html)**, it's important you see all events
+> **The events are [these](https://baileys.skyz-ops.io/types/BaileysEventMap.html)**, it's important you see all events
 
 You can listen to these events like this:
 ```ts
@@ -322,7 +322,7 @@ sock.ev.on('messages.upsert', ({ messages }) => {
 > This example includes basic auth storage too
 
 ```ts
-import makeWASocket, { DisconnectReason, useMultiFileAuthState } from '@whiskeysockets/baileys'
+import makeWASocket, { DisconnectReason, useMultiFileAuthState } from '@skyz-ops/baileys'
 import { Boom } from '@hapi/boom'
 
 async function connectToWhatsApp () {
@@ -404,7 +404,7 @@ sock.ev.on('messages.update', event => {
 It can be used as follows:
 
 ```ts
-import makeWASocket, { makeInMemoryStore } from '@whiskeysockets/baileys'
+import makeWASocket, { makeInMemoryStore } from '@skyz-ops/baileys'
 // the store maintains the data of the WA connection in memory
 // can be written out to a file & read from it
 const store = makeInMemoryStore({ })
@@ -453,8 +453,8 @@ The store also provides some simple functions such as `loadMessages` that utiliz
 ## Sending Messages
 
 - Send all types of messages with a single function
-    - **[Here](https://baileys.whiskeysockets.io/types/AnyMessageContent.html) you can see all message contents supported, like text message**
-    - **[Here](https://baileys.whiskeysockets.io/types/MiscMessageGenerationOptions.html) you can see all options supported, like quote message**
+    - **[Here](https://baileys.skyz-ops.io/types/AnyMessageContent.html) you can see all message contents supported, like text message**
+    - **[Here](https://baileys.skyz-ops.io/types/MiscMessageGenerationOptions.html) you can see all options supported, like quote message**
 
     ```ts
     const jid: string
@@ -489,7 +489,7 @@ await sock.sendMessage(
 ```
 
 #### Forward Messages
-- You need to have message object, can be retrieved from [store](#implementing-a-data-store) or use a [message](https://baileys.whiskeysockets.io/types/WAMessage.html) object
+- You need to have message object, can be retrieved from [store](#implementing-a-data-store) or use a [message](https://baileys.skyz-ops.io/types/WAMessage.html) object
 ```ts
 const msg = getMessageFromStore() // implement this on your end
 await sock.sendMessage(jid, { forward: msg }) // WA forward the message!
@@ -528,7 +528,7 @@ await sock.sendMessage(
 ```
 
 #### Reaction Message
-- You need to pass the key of message, you can retrieve from [store](#implementing-a-data-store) or use a [key](https://baileys.whiskeysockets.io/types/WAMessageKey.html) object
+- You need to pass the key of message, you can retrieve from [store](#implementing-a-data-store) or use a [key](https://baileys.skyz-ops.io/types/WAMessageKey.html) object
 ```ts
 await sock.sendMessage(
     jid,
@@ -542,7 +542,7 @@ await sock.sendMessage(
 ```
 
 #### Pin Message
-- You need to pass the key of message, you can retrieve from [store](#implementing-a-data-store) or use a [key](https://baileys.whiskeysockets.io/types/WAMessageKey.html) object
+- You need to pass the key of message, you can retrieve from [store](#implementing-a-data-store) or use a [key](https://baileys.skyz-ops.io/types/WAMessageKey.html) object
 
 - Time can be:
 
@@ -590,7 +590,7 @@ await sock.sendMessage(
 await sock.sendMessage(
     jid,
     {
-        text: 'Hi, this was sent using https://github.com/whiskeysockets/baileys'
+        text: 'Hi, this was sent using https://github.com/skyz-ops/baileys'
     }
 )
 ```
@@ -600,7 +600,7 @@ await sock.sendMessage(
 Sending media (video, stickers, images) is easier & more efficient than ever.
 
 > [!NOTE]
-> In media messages, you can pass `{ stream: Stream }` or `{ url: Url }` or `Buffer` directly, you can see more [here](https://baileys.whiskeysockets.io/types/WAMediaUpload.html)
+> In media messages, you can pass `{ stream: Stream }` or `{ url: Url }` or `Buffer` directly, you can see more [here](https://baileys.skyz-ops.io/types/WAMediaUpload.html)
 
 - When specifying a media url, Baileys never loads the entire buffer into memory; it even encrypts the media as a readable stream.
 
@@ -720,7 +720,7 @@ await sock.sendMessage(jid, {
 If you want to save the media you received
 ```ts
 import { createWriteStream } from 'fs'
-import { downloadMediaMessage, getContentType } from '@whiskeysockets/baileys'
+import { downloadMediaMessage, getContentType } from '@skyz-ops/baileys'
 
 sock.ev.on('messages.upsert', async ({ [m] }) => {
     if (!m.message) return // if there is no text or media message
@@ -765,7 +765,7 @@ await sock.rejectCall(callId, callFrom)
 ## Send States in Chat
 
 ### Reading Messages
-- A set of message [keys](https://baileys.whiskeysockets.io/types/WAMessageKey.html) must be explicitly marked read now.
+- A set of message [keys](https://baileys.skyz-ops.io/types/WAMessageKey.html) must be explicitly marked read now.
 - You cannot mark an entire 'chat' read as it were with Baileys Web.
 This means you have to keep track of unread messages.
 
@@ -780,7 +780,7 @@ On a `WAMessage`, the `messageID` can be accessed using ```messageID = message.k
 
 ### Update Presence
 
-- ``` presence ``` can be one of [these](https://baileys.whiskeysockets.io/types/WAPresence.html)
+- ``` presence ``` can be one of [these](https://baileys.skyz-ops.io/types/WAPresence.html)
 - The presence expires after about 10 seconds.
 - This lets the person/group with `jid` know whether you're online, offline, typing etc. 
 
@@ -982,7 +982,7 @@ await sock.updateProfileName('My name')
 - To change your display picture or a group's
 
 > [!NOTE]
-> Like media messages, you can pass `{ stream: Stream }` or `{ url: Url }` or `Buffer` directly, you can see more [here](https://baileys.whiskeysockets.io/types/WAMediaUpload.html)
+> Like media messages, you can pass `{ stream: Stream }` or `{ url: Url }` or `Buffer` directly, you can see more [here](https://baileys.skyz-ops.io/types/WAMediaUpload.html)
 
 ```ts
 await sock.updateProfilePicture(jid, { url: './new-profile-picture.jpeg' })
@@ -1194,8 +1194,8 @@ await sock.sendMessage(
     }
 )
 ```
-- Message body can be a `extendedTextMessage` or `imageMessage` or `videoMessage` or `voiceMessage`, see [here](https://baileys.whiskeysockets.io/types/AnyRegularMessageContent.html)
-- You can add `backgroundColor` and other options in the message options, see [here](https://baileys.whiskeysockets.io/types/MiscMessageGenerationOptions.html)
+- Message body can be a `extendedTextMessage` or `imageMessage` or `videoMessage` or `voiceMessage`, see [here](https://baileys.skyz-ops.io/types/AnyRegularMessageContent.html)
+- You can add `backgroundColor` and other options in the message options, see [here](https://baileys.skyz-ops.io/types/MiscMessageGenerationOptions.html)
 - `broadcast: true` enables broadcast mode
 - `statusJidList`: a list of people that you can get which you need to provide, which are the people who will get this status message.
 
@@ -1279,7 +1279,7 @@ sock.ws.on('CB:edge_routing,id:abcd,routing_info', (node: BinaryNode) => { })
 ```
 
 # License
-Copyright (c) 2025 Rajeh Taher/WhiskeySockets
+Copyright (c) 2025 SkyZhee/skyz-ops
 
 Licensed under the MIT License:
 Permission is hereby granted, free of charge, to any person obtaining a copy
